@@ -1,0 +1,82 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Write Review </title>
+    {{form.media}}
+    {% block styles %}
+      {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% endblock %}
+  </head>
+  <body>
+  <div class="container">
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".create-review").modalForm({
+            formURL: "{% url 'newreview' %}"
+        });
+
+    });
+    </script>
+
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <form method="post" action="">
+        {% csrf_token %}
+
+       <div class="modal-header">
+          <h5 class="modal-title">Create new Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          {% for field in form %}
+            <div class="form-group{% if field.errors %} invalid{% endif %}">
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field }}
+              {% for error in field.errors %}
+                <p class="help-block">{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="submit-btn btn btn-primary">Create</button>
+        </div>
+
+      </form>
+        <!-- <form action="{% url 'newreview' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% bootstrap_form form %}
+          <input type="submit" class="btn btn-success btn-md" value="Write Review">
+
+        </form> -->
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+    <script src="{% static 'css/js/bootstrap.js' %}"></script>
+    <script src="{% static 'css/js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <!-- You can alternatively load the minified version -->
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+    {% block script %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript%}
+    {% endblock %}
+
+  </body>
+</html>

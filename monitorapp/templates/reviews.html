@@ -1,0 +1,23 @@
+{%block content%}
+<div class="container">
+  <!-- <style>
+        body{
+          background-image: url(../static/wheel.jpg);
+          background-size: cover;
+        }
+  </style> -->
+  <div class="row">
+    {%for review in reviews%}
+    <div class="divider"></div>
+      <div class="section">
+        <h5>Media Report for {{review.date}}</h5>
+        <p>{{review.nation}}</p>
+        <p>{{review.standard}}</p>
+        <p>{{review.media_link}}</p>
+      </div>
+    {%endfor%}
+
+    </div>
+
+</div>
+{%endblock%}
