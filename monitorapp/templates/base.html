@@ -7,8 +7,18 @@
   <body>
 
     {%block content%}
-    
+
     {%endblock%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".create-review").modalForm({
+            formURL: "{% url 'newreview' %}"
+        });
+
+    });
+    </script>
+
 
   </body>
 </html>
