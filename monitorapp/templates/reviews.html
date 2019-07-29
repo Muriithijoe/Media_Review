@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 {%block content%}
 <div class="container">
   <!-- <style>
@@ -7,7 +9,7 @@
         }
   </style> -->
   <div class="row">
-    {%for review in reviews%}
+    {% for review in reviews %}
     <div class="divider"></div>
       <div class="section">
         <h5>Media Report for {{review.date}}</h5>

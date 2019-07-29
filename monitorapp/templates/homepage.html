@@ -1,12 +1,15 @@
+{% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
 <nav class="nav-extended white">
   <a class="navbar-brand" href="#">
     <img src="{%static 'img/zetechlogo.png'%}"  width="370" height="120" class="d-inline-block align-top" alt="logo">
   </a>
 </nav>
-<h1>Media Monitoring</h1>
+<h4>Media Monitoring</h4>
 
-<h2><a href='newreview'>Write Review</a></h2>
+<h5><a href='newreview'>Write Review</a></h5>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal">
   <div class="modal-dialog" role="document">
@@ -17,4 +20,5 @@
 </div>
 
 <!-- Create book button -->
-<button class="create-book btn btn-primary" type="button" name="button">Create Review</button>
+<button class="create-book btn btn-success" type="button" name="button">Create Review</button>
+{% endblock %}

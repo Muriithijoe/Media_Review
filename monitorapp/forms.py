@@ -6,7 +6,7 @@ class ReviewForm(BSModalForm):
     class Meta:
         model = DailyReview
 
-        fields = ('media_link' , 'nation' , 'standard' , 'date')
+        fields = ('media_link' , 'nation' , 'standard' , 'business_daily' , 'date')
 
         widgets ={'date': forms.DateInput(attrs={'class': 'datepicker'}),}
 
