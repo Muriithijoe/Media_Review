@@ -15,7 +15,7 @@
   </head>
   <body>
 {% block content %}
-  <!-- <div class="container">
+   <div class="container">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
@@ -46,14 +46,14 @@
           <button input type="submit" type="button" class="submit-btn btn btn-primary">Submit</button>
         </div>
 
-      </form> -->
-        <form action="{% url 'newreview' %}" method="post" enctype="multipart/form-data">
+      </form>
+        <!-- <form action="{% url 'newreview' %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
 
           {% bootstrap_form form %}
           <input type="submit" class="btn btn-success btn-md" value="Write Review">
 
-        </form> 
+        </form>  -->
       </div>
       <div class="col-md-2"></div>
     </div>

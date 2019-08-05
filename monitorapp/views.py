@@ -17,7 +17,7 @@ def homepage(request):
 
 def new_review(request):
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES)
+        form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save()
             review.save(using='monitoring')
@@ -25,6 +25,7 @@ def new_review(request):
 
     else:
         form = ReviewForm(request.POST)
+        print = "Imekataa"
     return render(request, 'write_review.html', {"form": form})
 
 def review(request):

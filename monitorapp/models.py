@@ -3,7 +3,7 @@ from django.core.validators import URLValidator
 
 # Create your models here.
 class DailyReview(models.Model):
-    date = models.DateField()
+    date = models.DateField(blank=False)
     media_link = models.TextField(validators=[URLValidator()],blank=True)
     nation = models.TextField(max_length = 500,blank=True)
     standard = models.TextField(max_length = 500,blank=True)
