@@ -1,36 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+    <link rel="stylesheet" type="text/js" href="/static/js/script.js" />
+    <link rel="stylesheet" type="text/css" href="/static/js/jquery.bootstrap.modal.forms.js" />
+
   </head>
   <body>
 
     {%block content%}
 
     {%endblock%}
-    <script type="text/javascript">
-    $(document).ready(function() {
 
-        $(".create-review").modalForm({
-            formURL: "{% url 'newreview' %}"
-        });
+    <!-- Includes -->
+    {% include "_footer.html" %}
 
-    });
-    </script>
     {% block script %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- You can alternatively load the minified version -->
+      <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+      <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+      <script src="{% static 'assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+      <!-- You can alternatively load the minified version -->
+      <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
 
     {% endblock%}
 
-    {% block materialize %}
-      <!-- Compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- {% block materialize %}
+      <!- Compiled and minified CSS -->
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
       <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
-    {% endblock%}
+    <!-- {% endblock%} -->
 
 
 

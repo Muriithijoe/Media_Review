@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 class ReviewCreateView(BSModalCreateView):
-    template_name = 'write_review.html'
+    template_name = 'create_review.html'
     form_class = ReviewForm
     success_message = 'Success: Review was created.'
     success_url = reverse_lazy('review')

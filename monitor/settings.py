@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'monitorapp',
     'bootstrap4',
     'bootstrap_modal_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
