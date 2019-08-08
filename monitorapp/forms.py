@@ -3,11 +3,12 @@ from .models import DailyReview
 from bootstrap_modal_forms.forms import BSModalForm
 
 class ReviewForm(BSModalForm):
+    date = forms.DateField(
+        error_messages={'invalid': 'Enter a valid date in YYYY-MM-DD format.'}
+    )
     class Meta:
         model = DailyReview
-
         fields = ('media_link' , 'nation' , 'standard' , 'business_daily' , 'date')
-
         widgets ={'date': forms.DateInput(attrs={'class': 'datepicker'}),}
 
 #         Approva1 = forms.CharField(required=False)

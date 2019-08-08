@@ -2,6 +2,7 @@ from django.shortcuts import render , redirect
 from .models import DailyReview
 from .forms import ReviewForm
 import datetime;
+from django.views import generic
 from bootstrap_modal_forms.generic import BSModalCreateView
 from django.urls import reverse_lazy
 

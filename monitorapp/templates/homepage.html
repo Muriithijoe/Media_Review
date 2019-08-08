@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+
+{% include "_modal.html" %}
+
 <nav class="nav-extended white">
   <a class="navbar-brand" href="#">
     <img src="{%static 'img/zetechlogo.png'%}"  width="370" height="120" class="d-inline-block align-top" alt="logo">
@@ -9,7 +12,41 @@
 </nav>
 <h4>Media Monitoring</h4>
 
-<button id='form'><h5><a href='newreview'>Write Review</a></h5></button> 
+<div class="modal fade" tabindex="-1" role="dialog" id="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+<!-- Create book button -->
+<button class="create-review btn btn-primary" type="button" name="button">Write Review</button>
+
+<button id='form'><h5><a href='newreview'>Write Review</a></h5></button>
+
+<div class="col-12 mb-3">
+    <button class="create-review btn btn-primary" type="button" name="button">
+    <span class="fa fa-plus mr-2"></span>Write Review</button>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".create-review").modalForm({
+            formURL: "{% url 'create_review' %}"
+        });
+    });
+</script>
+
+{% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      // Create review button
+      $(".create-review").modalForm({formURL: "{% url 'create_review' %}"})
+    });
+  </script>
+{% endblock extrascripts %}
+
 
 
 <!-- <div class="modal fade" tabindex="-1" role="dialog" id="modal">

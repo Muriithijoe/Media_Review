@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
     <link rel="stylesheet" type="text/js" href="/static/js/script.js" />
     <link rel="stylesheet" type="text/css" href="/static/js/jquery.bootstrap.modal.forms.js" />
+    <link rel="stylesheet" type="text/js" href="/static/js/jquery-3.2.1.min.js" />
+    <link rel="stylesheet" type="text/js" href="/static/js/jquery.bootstrap.modal.forms.js" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
 
   </head>
   <body>
@@ -21,12 +24,11 @@
     {% block script %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <!-- You can alternatively load the minified version -->
-      <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
-      <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
-      <script src="{% static 'assets/js/popper.min.js' %}"></script>
-      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-      <!-- You can alternatively load the minified version -->
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+      <script src="{% static 'js/jquery.js' %}"></script>
       <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+      <!-- You can alternatively load the minified version -->
+      <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
 
     {% endblock%}
 
