@@ -1,6 +1,7 @@
 from django import forms
 from .models import DailyReview
 from bootstrap_modal_forms.forms import BSModalForm
+from bootstrap_modal_forms.mixins import PopRequestMixin, CreateUpdateAjaxMixin
 
 class ReviewForm(BSModalForm):
     date = forms.DateField(

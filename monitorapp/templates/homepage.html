@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<!-- Create book button -->
+<!-- Create review button -->
 <button class="create-review btn btn-primary" type="button" name="button">Write Review</button>
 
 <button id='form'><h5><a href='newreview'>Write Review</a></h5></button>
@@ -29,6 +29,52 @@
     <button class="create-review btn btn-primary" type="button" name="button">
     <span class="fa fa-plus mr-2"></span>Write Review</button>
 </div>
+
+      <div class="col-12 mb-3">
+          {% if books %}
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-center" scope="col">#</th>
+                  <th class="text-center" scope="col">Title</th>
+                  <th class="text-center" scope="col">Author</th>
+                  <th class="text-center" scope="col">Type</th>
+                  <th class="text-center" scope="col">Publication date</th>
+                  <th class="text-center" scope="col">Pages</th>
+                  <th class="text-center" scope="col">Price (€)</th>
+                  <th class="text-center" scope="col">Read / Update / Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for book in books %}
+                  <tr>
+                    <th class="text-center" scope="row">{{ forloop.counter }}</th>
+                    <td class="text-center">{{ book.title }}</td>
+                    <td class="text-center">{{ book.author }}</td>
+                    <td class="text-center">{{ book.get_book_type_display }}</td>
+                    <td class="text-center">{{ book.publication_date }}</td>
+                    <td class="text-center">{{ book.pages }}</td>
+                    <td class="text-center">{{ book.price }}</td>
+                    <td class="text-center">
+                      <button type="button" class="read-review btn btn-sm btn-primary" data-id="{% url 'read_review' review.pk %}">
+                        <span class="fa fa-eye"></span>
+                      </button>
+                      <button type="button" class="update-review btn btn-sm btn-primary" data-id="{% url 'update_review' review.pk %}">
+                        <span class="fa fa-pencil"></span>
+                      </button>
+                      <button type="button" class="delete-review btn btn-sm btn-danger" data-id="{% url 'delete_review' review.pk %}">
+                        <span class="fa fa-trash"></span>
+                      </button>
+                      <!--<button type="button" class="delete-book btn btn-sm btn-danger" data-toggle="modal" data-target="#modal" data-id="{% url 'delete_book' book.pk %}"> <span class="fa fa-trash" aria-label="Delete"></span> </button>-->
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p class="no-reviews text-primary">No reviews added yet.</p>
+          {% endif %}
+        </div>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -41,11 +87,33 @@
 {% block extrascripts %}
   <script type="text/javascript">
     $(function () {
-      // Create review button
-      $(".create-review").modalForm({formURL: "{% url 'create_review' %}"})
+      // Create book button
+      $(".create-review").modalForm({formURL: "{% url 'create_review' %}"});
+
+      // Update book buttons
+      $(".update-review").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      // Read book buttons
+      $(".read-review").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+      // Delete book buttons
+      $(".delete-review").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      })
+
+      // Hide message
+      $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+      });
+
     });
   </script>
 {% endblock extrascripts %}
+
 
 
 

@@ -3,7 +3,7 @@ from .models import DailyReview
 from .forms import ReviewForm
 import datetime;
 from django.views import generic
-from bootstrap_modal_forms.generic import BSModalCreateView
+from bootstrap_modal_forms.generic import (BSModalCreateView, BSModalReadView,  BSModalUpdateView)
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -12,6 +12,17 @@ class ReviewCreateView(BSModalCreateView):
     form_class = ReviewForm
     success_message = 'Success: Review was created.'
     success_url = reverse_lazy('review')
+
+class ReviewReadView(BSModalReadView):
+    model = DailyReview
+    template_name = 'templates/read_review.html'
+
+class ReviewUpdateView(BSModalUpdateView):
+    model = DailyReview
+    template_name = 'templates/update_book.html'
+    form_class = ReviewForm
+    success_message = 'Success: Review was updated.'
+    success_url = reverse_lazy('read_review')
 
 def homepage(request):
     return render(request,'homepage.html')
